@@ -65,3 +65,20 @@ category	viewed	cart_added	abandoned	purchased
 Fish	    137	    73	        32	        41
 Luxury	    83	    38	        11	        27
 Shellfish	186	    100	        36	        64
+
+--Most viewed product
+SELECT TOP 1 product most_viewed
+FROM clique_bait.product_info_performance
+ORDER BY viewed DESC
+--Most cart adds
+SELECT TOP 1 product most_adds
+FROM clique_bait.product_info_performance
+ORDER BY cart_added DESC
+--Most purchased
+SELECT TOP 1 product most_purchased
+FROM clique_bait.product_info_performance
+ORDER BY purchased DESC
+--Most abandoned
+SELECT TOP 1 product most_abandoned
+FROM clique_bait.product_info_performance
+ORDER BY abandoned DESC
