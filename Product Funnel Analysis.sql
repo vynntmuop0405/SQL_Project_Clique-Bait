@@ -82,3 +82,14 @@ ORDER BY purchased DESC
 SELECT TOP 1 product most_abandoned
 FROM clique_bait.product_info_performance
 ORDER BY abandoned DESC
+--highest view to purchase percentage?
+SELECT	TOP 1 product, 
+		round((purchased*100/viewed),2) as View_purchase_percentage
+FROM clique_bait.product_info_performance
+ORDER BY 2 DESC
+--average conversion rate from cart add to purchase?
+with cte as 
+(select *, (purchased*100/cart_added) as conversion_rate from clique_bait.product_info_performance
+)
+select round(avg(conversion_rate),2) as Avg_conversion_rate
+from cte
